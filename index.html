@@ -1,17 +1,15 @@
-
-        <!doctype html>
+<!doctype html>
 <html lang="hi">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PhotoFix — Exam Photo & Signature Tool</title>
+
+  <!-- START-1001: STYLES & HEAD -->
   <meta name="description" content="Exam photo & signature resize tool: RRB/SSC/Bank templates. Mobile friendly." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#f4f7fb; --card:#ffffff; --muted:#6b7280; --primary:#0b74ff; --accent:#07c46b;
-      --soft-shadow:0 8px 30px rgba(15,23,42,0.06); --radius:12px;
-    }
+    :root{ --bg:#f4f7fb; --card:#ffffff; --muted:#6b7280; --primary:#0b74ff; --accent:#07c46b; --soft-shadow:0 8px 30px rgba(15,23,42,0.06); --radius:12px; }
     *{box-sizing:border-box}
     body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:#071129}
     .wrap{max-width:1080px;margin:22px auto;padding:16px}
@@ -19,17 +17,9 @@
     .brand{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#2d9cff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
     header h1{margin:0;font-size:20px}
     header p{margin:0;color:var(--muted);font-size:13px}
-
     .hero{margin-top:12px;background:linear-gradient(#fff,#fbfdff);padding:14px;border-radius:var(--radius);box-shadow:var(--soft-shadow);display:flex;justify-content:space-between;gap:12px}
-    .hero-left{flex:1}
-    .hero-right{text-align:right}
-    .primary-btn{background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer}
-    .ghost-btn{background:transparent;color:var(--primary);padding:8px 12px;border-radius:10px;border:1px solid rgba(11,116,255,0.12);cursor:pointer}
-
     .templates{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
     .tpl-card{background:var(--card);padding:12px;border-radius:10px;min-width:200px;flex:1;box-shadow:0 8px 25px rgba(0,0,0,0.05);cursor:pointer;transition:transform .18s}
-    .tpl-card:hover{transform:translateY(-6px)}
-
     .tool{margin-top:14px;background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--soft-shadow)}
     .row{display:flex;gap:12px;flex-wrap:wrap}
     label{display:block;font-size:13px;margin-bottom:6px;color:#222}
@@ -40,32 +30,25 @@
     .preview .box{background:#f9fbff;padding:12px;border-radius:10px;border:1px solid #eef4ff;text-align:center}
     #previewImg{max-width:100%;border-radius:8px;display:block;margin:8px auto}
     .meta{font-size:13px;color:var(--muted);margin-top:6px}
-
     .actions{display:flex;gap:10px;align-items:center;margin-top:10px}
     .small-btn{padding:8px 12px;border-radius:10px;border:0;cursor:pointer}
     .download-btn{background:var(--accent);color:#fff}
     .process-btn{background:var(--primary);color:#fff}
     .loader{display:none;color:var(--muted);font-size:13px;margin-left:8px}
-
     .beforeafter{display:flex;gap:8px;align-items:center;margin-top:10px}
     .ba{flex:1;background:#fff;padding:8px;border-radius:8px;border:1px solid #f0f4ff;text-align:center}
-    .ba small{display:block;color:var(--muted);margin-top:6px}
-
     .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;padding:18px;z-index:1200}
     .modal{background:var(--card);width:100%;max-width:720px;border-radius:12px;padding:16px;box-shadow:0 26px 60px rgba(2,6,23,0.35)}
-    .modal .close{float:right;border:0;background:transparent;font-weight:700;cursor:pointer;color:var(--muted)}
-
     footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
-
-    @media(max-width:760px){
-      .hero{flex-direction:column}
-      .hero-right{text-align:left}
-      .row{flex-direction:column}
-    }
+    @media(max-width:760px){ .hero{flex-direction:column} .row{flex-direction:column} }
   </style>
+  <!-- END-1001 -->
+
 </head>
 <body>
   <div class="wrap">
+
+    <!-- START-1002: HEADER -->
     <header>
       <div class="brand">PF</div>
       <div>
@@ -73,23 +56,30 @@
         <p>Exam photo & signature tool — fast, accurate, exam-ready</p>
       </div>
     </header>
+    <!-- END-1002 -->
 
+    <!-- START-1003: HERO -->
     <section class="hero">
-      <div class="hero-left">
+      <div style="flex:1">
         <h2>Select template & prepare your photo</h2>
         <p style="color:#6b7280;margin-top:6px">RRB, SSC, Bank — ready templates. Upload, resize, preview and download.</p>
       </div>
-      <div class="hero-right">
-        <button class="primary-btn" onclick="location.href='#tool'">Open Tool</button>
+      <div style="text-align:right">
+        <button class="small-btn process-btn" onclick="location.href='#tool'">Open Tool</button>
         <div style="height:8px"></div>
-        <button class="ghost-btn" onclick="openExamples()">How to use</button>
+        <button class="small-btn" onclick="openExamples()">How to use</button>
       </div>
     </section>
+    <!-- END-1003 -->
 
+    <!-- START-1004: TEMPLATES GRID -->
     <section style="margin-top:12px">
+      <!-- templateGrid me JS templates add karega -->
       <div class="templates" id="templateGrid"></div>
     </section>
+    <!-- END-1004 -->
 
+    <!-- START-1005: TOOL (FORM + PREVIEW) -->
     <section id="tool" class="tool" aria-label="Resize tool">
       <div class="row">
         <div class="controls">
@@ -147,11 +137,15 @@
         </div>
       </div>
     </section>
+    <!-- END-1005 -->
 
+    <!-- START-1006: FOOTER -->
     <footer>© PhotoFix · examphoto.in</footer>
+    <!-- END-1006 -->
+
   </div>
 
-  <!-- Modal -->
+  <!-- START-1007: MODAL -->
   <div id="modalBackdrop" class="modal-backdrop">
     <div class="modal" onclick="event.stopPropagation()">
       <button class="close" onclick="closeModal()">✕</button>
@@ -159,17 +153,22 @@
       <p id="modalMeta" style="color:#6b7280"></p>
       <p id="modalDetails"></p>
       <div style="margin-top:12px">
-        <button class="primary-btn" onclick="useTemplate()">Use this template</button>
-        <button class="ghost-btn" onclick="closeModal()">Cancel</button>
+        <button class="small-btn process-btn" onclick="useTemplate()">Use this template</button>
+        <button class="small-btn" onclick="closeModal()">Cancel</button>
       </div>
     </div>
   </div>
+  <!-- END-1007 -->
 
+  <!-- START-1008: SCRIPT LINK -->
   <script src="script.js"></script>
   <script>
     function openExamples(){
       alert('1) Template choose → 2) Image upload → 3) Resize & Compress → 4) Download.\nSignature ke liye white paper par clear sign karein.');
     }
+    function closeModal(e){ document.getElementById('modalBackdrop').style.display='none'; }
   </script>
+  <!-- END-1008 -->
+
 </body>
 </html>
