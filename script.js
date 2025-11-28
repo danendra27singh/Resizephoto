@@ -5,9 +5,18 @@ const TEMPLATES = {
 
   "ssc-gd": { title:"SSC GD — Photo", width:300, height:400, kb:50, format:"image/jpeg",
     description:"SSC GD recommended size: 300×400 px." },
+  
+   "signature": {
+  id:"signature",
+  title:"Signature",
+  width:160,
+  height:60,
+  kb:40,  // Base value (but override below)
+  format:"image/jpeg",
+  description:"Signature for RRB NTPC — 160×60 px — 31–49 KB target"
+}
 
-  "signature": { title:"Signature", width:140, height:60, kb:20, format:"image/png",
-    description:"Signature ko white paper par likh kar upload karein." }
+
 };
 
 // UI elements
